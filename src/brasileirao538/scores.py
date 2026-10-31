@@ -32,11 +32,13 @@ class ScoreModel:
 
     def outcome_probabilities(self) -> Probabilities:
         h, a = np.indices(self.probabilities.shape)
-        return Probabilities(
+        values = (
             float(self.probabilities[h > a].sum()),
             float(self.probabilities[h == a].sum()),
             float(self.probabilities[h < a].sum()),
         )
+        # Evita 1+epsilon devido apenas a arredondamento flutuante.
+        return Probabilities(*(min(1.0, max(0.0, p)) for p in values))
 
     def sample(self, rng: np.random.Generator, count: int) -> tuple[np.ndarray, np.ndarray]:
         """Sorteia pares (gols_casa, gols_fora)."""
