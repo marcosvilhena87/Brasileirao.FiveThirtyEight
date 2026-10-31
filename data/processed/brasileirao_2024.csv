@@ -1,0 +1,381 @@
+season,round,date,home,away,home_goals,away_goals
+2024,1,2024-04-13,Criciúma,Juventude,1,1
+2024,1,2024-04-13,Fluminense,Bragantino,2,2
+2024,1,2024-04-13,São Paulo,Fortaleza,1,2
+2024,1,2024-04-13,Internacional,Bahia,2,1
+2024,1,2024-04-14,Atlético-GO,Flamengo,1,2
+2024,1,2024-04-14,Athletico-PR,Cuiabá,4,0
+2024,1,2024-04-14,Vasco,Grêmio,2,1
+2024,1,2024-04-14,Cruzeiro,Botafogo,3,2
+2024,1,2024-04-14,Vitória,Palmeiras,0,1
+2024,1,2024-04-14,Corinthians,Atlético-MG,0,0
+2024,2,2024-04-16,Bahia,Fluminense,2,1
+2024,2,2024-04-17,Atlético-MG,Criciúma,1,1
+2024,2,2024-04-17,Flamengo,São Paulo,2,1
+2024,2,2024-04-17,Juventude,Corinthians,2,0
+2024,2,2024-04-17,Fortaleza,Cruzeiro,1,1
+2024,2,2024-04-17,Grêmio,Athletico-PR,2,0
+2024,2,2024-04-17,Bragantino,Vasco,2,1
+2024,2,2024-04-17,Palmeiras,Internacional,0,1
+2024,2,2024-04-18,Botafogo,Atlético-GO,1,0
+2024,3,2024-04-20,Atlético-MG,Cruzeiro,3,0
+2024,3,2024-04-20,Fluminense,Vasco,2,1
+2024,3,2024-04-20,Grêmio,Cuiabá,1,0
+2024,3,2024-04-20,Bragantino,Corinthians,1,0
+2024,3,2024-04-21,Atlético-GO,São Paulo,0,3
+2024,3,2024-04-21,Botafogo,Juventude,5,1
+2024,3,2024-04-21,Athletico-PR,Internacional,1,0
+2024,3,2024-04-21,Vitória,Bahia,2,2
+2024,3,2024-04-21,Palmeiras,Flamengo,0,0
+2024,4,2024-04-27,Vasco,Criciúma,0,4
+2024,4,2024-04-27,Cuiabá,Atlético-MG,0,3
+2024,4,2024-04-27,Bahia,Grêmio,1,0
+2024,4,2024-04-28,Flamengo,Botafogo,0,2
+2024,4,2024-04-28,Cruzeiro,Vitória,3,1
+2024,4,2024-04-28,Juventude,Athletico-PR,1,1
+2024,4,2024-04-28,Fortaleza,Bragantino,1,1
+2024,4,2024-04-28,Corinthians,Fluminense,3,0
+2024,4,2024-04-28,Internacional,Atlético-GO,1,1
+2024,4,2024-04-29,São Paulo,Palmeiras,0,0
+2024,5,2024-05-04,Fluminense,Atlético-MG,2,2
+2024,5,2024-05-04,Bragantino,Flamengo,1,1
+2024,5,2024-05-04,Corinthians,Fortaleza,0,0
+2024,5,2024-05-05,Botafogo,Bahia,1,2
+2024,5,2024-05-05,Athletico-PR,Vasco,1,0
+2024,5,2024-05-05,Cuiabá,Palmeiras,0,2
+2024,5,2024-05-05,Vitória,São Paulo,1,3
+2024,6,2024-05-11,Flamengo,Corinthians,2,0
+2024,6,2024-05-12,Atlético-GO,Cruzeiro,0,1
+2024,6,2024-05-12,Vasco,Vitória,2,1
+2024,6,2024-05-12,Bahia,Bragantino,1,0
+2024,6,2024-05-12,Fortaleza,Botafogo,1,1
+2024,6,2024-05-12,Palmeiras,Athletico-PR,0,2
+2024,6,2024-05-13,São Paulo,Fluminense,2,1
+2024,7,2024-06-01,Cuiabá,Internacional,0,1
+2024,7,2024-06-01,Vitória,Atlético-GO,0,2
+2024,7,2024-06-01,Fluminense,Juventude,1,1
+2024,7,2024-06-01,Grêmio,Bragantino,0,2
+2024,7,2024-06-01,Corinthians,Botafogo,0,1
+2024,7,2024-06-02,Atlético-MG,Bahia,1,1
+2024,7,2024-06-02,Vasco,Flamengo,1,6
+2024,7,2024-06-02,Criciúma,Palmeiras,1,2
+2024,7,2024-06-02,Fortaleza,Athletico-PR,1,0
+2024,7,2024-06-02,São Paulo,Cruzeiro,2,0
+2024,2,2024-06-05,Cuiabá,Vitória,0,0
+2024,5,2024-06-05,Juventude,Atlético-GO,1,0
+2024,6,2024-06-09,Criciúma,Cuiabá,2,5
+2024,8,2024-06-11,Atlético-GO,Corinthians,2,2
+2024,8,2024-06-11,Botafogo,Fluminense,1,0
+2024,8,2024-06-11,Juventude,Vitória,1,1
+2024,8,2024-06-11,Bragantino,Atlético-MG,1,2
+2024,8,2024-06-13,Athletico-PR,Criciúma,3,1
+2024,8,2024-06-13,Flamengo,Grêmio,2,1
+2024,8,2024-06-13,Cruzeiro,Cuiabá,2,1
+2024,8,2024-06-13,Bahia,Fortaleza,1,0
+2024,8,2024-06-13,Internacional,São Paulo,0,0
+2024,8,2024-06-13,Palmeiras,Vasco,2,0
+2024,9,2024-06-15,Fluminense,Atlético-GO,1,2
+2024,9,2024-06-15,Bragantino,Juventude,2,1
+2024,9,2024-06-16,Athletico-PR,Flamengo,1,1
+2024,9,2024-06-16,Vasco,Cruzeiro,0,0
+2024,9,2024-06-16,Criciúma,Bahia,2,2
+2024,9,2024-06-16,Cuiabá,Fortaleza,5,0
+2024,9,2024-06-16,Vitória,Internacional,2,1
+2024,9,2024-06-16,Grêmio,Botafogo,1,2
+2024,9,2024-06-16,Corinthians,São Paulo,2,2
+2024,9,2024-06-17,Atlético-MG,Palmeiras,0,4
+2024,10,2024-06-19,Atlético-GO,Criciúma,1,2
+2024,10,2024-06-19,Botafogo,Athletico-PR,1,1
+2024,10,2024-06-19,Cruzeiro,Fluminense,2,0
+2024,10,2024-06-19,Juventude,Vasco,2,0
+2024,10,2024-06-19,Fortaleza,Grêmio,1,0
+2024,10,2024-06-19,São Paulo,Cuiabá,0,1
+2024,10,2024-06-19,Internacional,Corinthians,1,0
+2024,10,2024-06-20,Flamengo,Bahia,2,1
+2024,10,2024-06-20,Vitória,Atlético-MG,4,2
+2024,10,2024-06-20,Palmeiras,Bragantino,2,1
+2024,11,2024-06-22,Vasco,São Paulo,4,1
+2024,11,2024-06-22,Criciúma,Botafogo,2,1
+2024,11,2024-06-22,Cuiabá,Atlético-GO,0,0
+2024,11,2024-06-22,Grêmio,Internacional,0,1
+2024,11,2024-06-23,Atlético-MG,Fortaleza,1,1
+2024,11,2024-06-23,Athletico-PR,Corinthians,1,1
+2024,11,2024-06-23,Bahia,Cruzeiro,4,1
+2024,11,2024-06-23,Fluminense,Flamengo,0,1
+2024,11,2024-06-23,Bragantino,Vitória,2,1
+2024,11,2024-06-23,Palmeiras,Juventude,3,1
+2024,12,2024-06-26,Atlético-GO,Grêmio,1,1
+2024,12,2024-06-26,Botafogo,Bragantino,2,1
+2024,12,2024-06-26,Cruzeiro,Athletico-PR,2,0
+2024,12,2024-06-26,Bahia,Vasco,2,1
+2024,12,2024-06-26,Juventude,Flamengo,2,1
+2024,12,2024-06-26,Fortaleza,Palmeiras,3,0
+2024,12,2024-06-26,Corinthians,Cuiabá,1,1
+2024,12,2024-06-26,Internacional,Atlético-MG,1,2
+2024,12,2024-06-27,Fluminense,Vitória,0,1
+2024,12,2024-06-27,São Paulo,Criciúma,2,1
+2024,13,2024-06-29,Vasco,Botafogo,1,1
+2024,13,2024-06-29,Cuiabá,Bragantino,1,1
+2024,13,2024-06-30,Atlético-MG,Atlético-GO,1,1
+2024,13,2024-06-30,Flamengo,Cruzeiro,2,1
+2024,13,2024-06-30,Criciúma,Internacional,1,1
+2024,13,2024-06-30,Vitória,Athletico-PR,0,1
+2024,13,2024-06-30,Fortaleza,Juventude,2,1
+2024,13,2024-06-30,Grêmio,Fluminense,1,0
+2024,13,2024-06-30,São Paulo,Bahia,3,1
+2024,13,2024-07-01,Palmeiras,Corinthians,2,0
+2024,14,2024-07-03,Atlético-MG,Flamengo,2,4
+2024,14,2024-07-03,Athletico-PR,São Paulo,1,2
+2024,14,2024-07-03,Vasco,Fortaleza,2,0
+2024,14,2024-07-03,Criciúma,Cruzeiro,1,0
+2024,14,2024-07-03,Cuiabá,Botafogo,1,2
+2024,14,2024-07-03,Bragantino,Atlético-GO,3,1
+2024,14,2024-07-04,Bahia,Juventude,2,0
+2024,14,2024-07-04,Fluminense,Internacional,1,1
+2024,14,2024-07-04,Grêmio,Palmeiras,2,2
+2024,14,2024-07-04,Corinthians,Vitória,3,2
+2024,15,2024-07-06,Flamengo,Cuiabá,1,1
+2024,15,2024-07-06,São Paulo,Bragantino,2,0
+2024,15,2024-07-07,Atlético-GO,Athletico-PR,1,2
+2024,15,2024-07-07,Botafogo,Atlético-MG,3,0
+2024,15,2024-07-07,Cruzeiro,Corinthians,3,0
+2024,15,2024-07-07,Juventude,Grêmio,3,0
+2024,15,2024-07-07,Vitória,Criciúma,2,1
+2024,15,2024-07-07,Fortaleza,Fluminense,1,0
+2024,15,2024-07-07,Internacional,Vasco,1,2
+2024,15,2024-07-07,Palmeiras,Bahia,2,0
+2024,16,2024-07-10,Athletico-PR,Bahia,1,3
+2024,16,2024-07-10,Vasco,Corinthians,2,0
+2024,16,2024-07-10,Grêmio,Cruzeiro,0,2
+2024,16,2024-07-11,Atlético-MG,São Paulo,2,1
+2024,16,2024-07-11,Flamengo,Fortaleza,1,2
+2024,16,2024-07-11,Criciúma,Fluminense,1,1
+2024,16,2024-07-11,Vitória,Botafogo,0,1
+2024,16,2024-07-11,Palmeiras,Atlético-GO,3,1
+2024,17,2024-07-13,Cruzeiro,Bragantino,2,1
+2024,17,2024-07-13,Bahia,Cuiabá,1,2
+2024,17,2024-07-16,Juventude,Atlético-MG,1,1
+2024,17,2024-07-16,Corinthians,Criciúma,2,1
+2024,17,2024-07-17,Atlético-GO,Vasco,0,1
+2024,17,2024-07-17,Botafogo,Palmeiras,1,0
+2024,17,2024-07-17,Fortaleza,Vitória,3,1
+2024,17,2024-07-17,São Paulo,Grêmio,1,0
+2024,18,2024-07-20,Botafogo,Internacional,1,0
+2024,18,2024-07-20,Flamengo,Criciúma,2,1
+2024,18,2024-07-20,Palmeiras,Cruzeiro,2,0
+2024,18,2024-07-21,Atlético-MG,Vasco,2,0
+2024,18,2024-07-21,Cuiabá,Fluminense,0,1
+2024,18,2024-07-21,Bahia,Corinthians,0,1
+2024,18,2024-07-21,Juventude,São Paulo,0,0
+2024,18,2024-07-21,Fortaleza,Atlético-GO,3,1
+2024,18,2024-07-21,Grêmio,Vitória,2,0
+2024,18,2024-07-21,Bragantino,Athletico-PR,1,0
+2024,3,2024-07-24,Criciúma,Fortaleza,1,1
+2024,19,2024-07-24,Atlético-GO,Bahia,1,1
+2024,19,2024-07-24,Cruzeiro,Juventude,2,0
+2024,19,2024-07-24,Vitória,Flamengo,1,2
+2024,19,2024-07-24,Fluminense,Palmeiras,1,0
+2024,19,2024-07-24,São Paulo,Botafogo,2,2
+2024,19,2024-07-25,Corinthians,Grêmio,2,2
+2024,20,2024-07-27,Botafogo,Cruzeiro,0,3
+2024,20,2024-07-27,Bahia,Internacional,1,1
+2024,20,2024-07-27,Juventude,Criciúma,1,2
+2024,20,2024-07-27,Fortaleza,São Paulo,1,0
+2024,20,2024-07-27,Palmeiras,Vitória,0,2
+2024,20,2024-07-28,Atlético-MG,Corinthians,2,1
+2024,20,2024-07-28,Flamengo,Atlético-GO,2,0
+2024,20,2024-07-28,Cuiabá,Athletico-PR,1,2
+2024,20,2024-07-28,Grêmio,Vasco,1,0
+2024,20,2024-07-28,Bragantino,Fluminense,0,1
+2024,21,2024-08-03,Atlético-GO,Botafogo,1,4
+2024,21,2024-08-03,Vasco,Bragantino,2,2
+2024,21,2024-08-03,Criciúma,Atlético-MG,2,1
+2024,21,2024-08-03,Vitória,Cuiabá,1,0
+2024,21,2024-08-03,São Paulo,Flamengo,1,0
+2024,21,2024-08-04,Athletico-PR,Grêmio,0,2
+2024,21,2024-08-04,Fluminense,Bahia,1,0
+2024,21,2024-08-04,Corinthians,Juventude,1,1
+2024,21,2024-08-04,Internacional,Palmeiras,1,1
+2024,21,2024-08-05,Cruzeiro,Fortaleza,1,2
+2024,22,2024-08-10,Vasco,Fluminense,2,0
+2024,22,2024-08-10,Cruzeiro,Atlético-MG,0,0
+2024,22,2024-08-10,Cuiabá,Grêmio,1,3
+2024,22,2024-08-10,Fortaleza,Criciúma,1,0
+2024,22,2024-08-10,Corinthians,Bragantino,1,1
+2024,22,2024-08-11,Flamengo,Palmeiras,1,1
+2024,22,2024-08-11,Bahia,Vitória,2,0
+2024,22,2024-08-11,Juventude,Botafogo,3,2
+2024,22,2024-08-11,São Paulo,Atlético-GO,1,0
+2024,22,2024-08-11,Internacional,Athletico-PR,2,2
+2024,6,2024-08-14,Internacional,Juventude,2,1
+2024,23,2024-08-17,Atlético-MG,Cuiabá,1,1
+2024,23,2024-08-17,Fluminense,Corinthians,0,0
+2024,23,2024-08-17,Grêmio,Bahia,0,2
+2024,23,2024-08-17,Bragantino,Fortaleza,1,2
+2024,23,2024-08-18,Atlético-GO,Internacional,1,0
+2024,23,2024-08-18,Botafogo,Flamengo,4,1
+2024,23,2024-08-18,Athletico-PR,Juventude,1,2
+2024,23,2024-08-18,Criciúma,Vasco,2,2
+2024,23,2024-08-18,Palmeiras,São Paulo,2,1
+2024,23,2024-08-19,Vitória,Cruzeiro,2,2
+2024,24,2024-08-24,Atlético-GO,Juventude,2,1
+2024,24,2024-08-24,Atlético-MG,Fluminense,0,2
+2024,24,2024-08-24,Palmeiras,Cuiabá,5,0
+2024,24,2024-08-25,Flamengo,Bragantino,2,1
+2024,24,2024-08-25,Criciúma,Grêmio,0,1
+2024,24,2024-08-25,Bahia,Botafogo,0,0
+2024,24,2024-08-25,Fortaleza,Corinthians,1,0
+2024,24,2024-08-25,São Paulo,Vitória,2,1
+2024,24,2024-08-25,Internacional,Cruzeiro,1,0
+2024,24,2024-08-26,Vasco,Athletico-PR,2,1
+2024,5,2024-08-28,Cruzeiro,Internacional,0,0
+2024,19,2024-08-28,Criciúma,Bragantino,1,0
+2024,25,2024-08-31,Botafogo,Fortaleza,2,0
+2024,25,2024-08-31,Cuiabá,Criciúma,2,1
+2024,25,2024-09-01,Athletico-PR,Palmeiras,0,2
+2024,25,2024-09-01,Cruzeiro,Atlético-GO,3,1
+2024,25,2024-09-01,Juventude,Internacional,1,3
+2024,25,2024-09-01,Vitória,Vasco,0,1
+2024,25,2024-09-01,Fluminense,São Paulo,2,0
+2024,25,2024-09-01,Grêmio,Atlético-MG,2,3
+2024,25,2024-09-01,Bragantino,Bahia,2,1
+2024,25,2024-09-01,Corinthians,Flamengo,2,1
+2024,16,2024-09-05,Cuiabá,Juventude,0,0
+2024,19,2024-09-11,Internacional,Fortaleza,2,1
+2024,26,2024-09-14,Atlético-GO,Vitória,0,2
+2024,26,2024-09-14,Botafogo,Corinthians,2,1
+2024,26,2024-09-14,Athletico-PR,Fortaleza,1,1
+2024,26,2024-09-15,Flamengo,Vasco,1,1
+2024,26,2024-09-15,Cruzeiro,São Paulo,0,1
+2024,26,2024-09-15,Bahia,Atlético-MG,3,0
+2024,26,2024-09-15,Juventude,Fluminense,2,1
+2024,26,2024-09-15,Bragantino,Grêmio,2,2
+2024,26,2024-09-15,Palmeiras,Criciúma,5,0
+2024,26,2024-09-16,Internacional,Cuiabá,3,0
+2024,27,2024-09-21,Vitória,Juventude,1,0
+2024,27,2024-09-21,Fluminense,Botafogo,0,1
+2024,27,2024-09-21,Fortaleza,Bahia,4,1
+2024,27,2024-09-21,Corinthians,Atlético-GO,3,0
+2024,27,2024-09-22,Atlético-MG,Bragantino,3,0
+2024,27,2024-09-22,Vasco,Palmeiras,0,1
+2024,27,2024-09-22,Criciúma,Athletico-PR,0,0
+2024,27,2024-09-22,Cuiabá,Cruzeiro,0,0
+2024,27,2024-09-22,Grêmio,Flamengo,3,2
+2024,27,2024-09-22,São Paulo,Internacional,1,3
+2024,5,2024-09-25,Grêmio,Criciúma,1,2
+2024,16,2024-09-25,Bragantino,Internacional,2,2
+2024,28,2024-09-28,Botafogo,Grêmio,0,0
+2024,28,2024-09-28,Palmeiras,Atlético-MG,2,1
+2024,28,2024-09-29,Atlético-GO,Fluminense,1,0
+2024,28,2024-09-29,Flamengo,Athletico-PR,1,0
+2024,28,2024-09-29,Cruzeiro,Vasco,1,1
+2024,28,2024-09-29,Bahia,Criciúma,1,0
+2024,28,2024-09-29,Juventude,Bragantino,1,1
+2024,28,2024-09-29,Fortaleza,Cuiabá,1,0
+2024,28,2024-09-29,São Paulo,Corinthians,3,1
+2024,28,2024-09-29,Internacional,Vitória,3,1
+2024,29,2024-10-03,Criciúma,Atlético-GO,2,0
+2024,29,2024-10-03,Fluminense,Cruzeiro,1,0
+2024,29,2024-10-04,Grêmio,Fortaleza,3,1
+2024,29,2024-10-05,Atlético-MG,Vitória,2,2
+2024,29,2024-10-05,Athletico-PR,Botafogo,0,1
+2024,29,2024-10-05,Vasco,Juventude,1,1
+2024,29,2024-10-05,Cuiabá,São Paulo,2,0
+2024,29,2024-10-05,Bahia,Flamengo,0,2
+2024,29,2024-10-05,Bragantino,Palmeiras,0,0
+2024,29,2024-10-05,Corinthians,Internacional,2,2
+2024,6,2024-10-09,Atlético-MG,Grêmio,2,1
+2024,30,2024-10-16,Fortaleza,Atlético-MG,1,1
+2024,30,2024-10-16,São Paulo,Vasco,3,0
+2024,30,2024-10-17,Flamengo,Fluminense,0,2
+2024,30,2024-10-17,Corinthians,Athletico-PR,5,2
+2024,30,2024-10-18,Atlético-GO,Cuiabá,0,0
+2024,30,2024-10-18,Botafogo,Criciúma,1,1
+2024,30,2024-10-18,Cruzeiro,Bahia,1,1
+2024,30,2024-10-19,Vitória,Bragantino,1,0
+2024,30,2024-10-19,Internacional,Grêmio,1,0
+2024,30,2024-10-20,Juventude,Palmeiras,3,5
+2024,17,2024-10-22,Fluminense,Athletico-PR,1,0
+2024,19,2024-10-24,Vasco,Cuiabá,1,0
+2024,31,2024-10-26,Atlético-MG,Internacional,1,3
+2024,31,2024-10-26,Athletico-PR,Cruzeiro,3,0
+2024,31,2024-10-26,Flamengo,Juventude,4,2
+2024,31,2024-10-26,Criciúma,São Paulo,1,1
+2024,31,2024-10-26,Vitória,Fluminense,2,1
+2024,31,2024-10-26,Grêmio,Atlético-GO,3,1
+2024,31,2024-10-26,Bragantino,Botafogo,0,1
+2024,31,2024-10-26,Palmeiras,Fortaleza,2,2
+2024,31,2024-10-28,Vasco,Bahia,3,2
+2024,31,2024-10-28,Cuiabá,Corinthians,0,1
+2024,17,2024-10-30,Internacional,Flamengo,1,1
+2024,32,2024-11-01,Fluminense,Grêmio,2,2
+2024,32,2024-11-02,Athletico-PR,Vitória,1,2
+2024,32,2024-11-02,Juventude,Fortaleza,0,3
+2024,32,2024-11-02,Bragantino,Cuiabá,0,0
+2024,32,2024-11-04,Corinthians,Palmeiras,2,0
+2024,32,2024-11-05,Botafogo,Vasco,3,0
+2024,32,2024-11-05,Bahia,São Paulo,0,3
+2024,32,2024-11-05,Internacional,Criciúma,2,0
+2024,32,2024-11-06,Atlético-GO,Atlético-MG,1,0
+2024,32,2024-11-06,Cruzeiro,Flamengo,0,1
+2024,33,2024-11-08,Internacional,Fluminense,2,0
+2024,33,2024-11-08,Palmeiras,Grêmio,1,0
+2024,33,2024-11-09,Atlético-GO,Bragantino,0,0
+2024,33,2024-11-09,Botafogo,Cuiabá,0,0
+2024,33,2024-11-09,Cruzeiro,Criciúma,2,1
+2024,33,2024-11-09,Juventude,Bahia,2,1
+2024,33,2024-11-09,Vitória,Corinthians,1,2
+2024,33,2024-11-09,Fortaleza,Vasco,3,0
+2024,33,2024-11-09,São Paulo,Athletico-PR,2,1
+2024,33,2024-11-13,Flamengo,Atlético-MG,0,0
+2024,19,2024-11-16,Athletico-PR,Atlético-MG,1,0
+2024,34,2024-11-20,Atlético-MG,Botafogo,0,0
+2024,34,2024-11-20,Athletico-PR,Atlético-GO,2,0
+2024,34,2024-11-20,Criciúma,Vitória,0,1
+2024,34,2024-11-20,Cuiabá,Flamengo,1,2
+2024,34,2024-11-20,Bahia,Palmeiras,1,2
+2024,34,2024-11-20,Grêmio,Juventude,2,2
+2024,34,2024-11-20,Bragantino,São Paulo,1,1
+2024,34,2024-11-20,Corinthians,Cruzeiro,2,1
+2024,34,2024-11-21,Vasco,Internacional,0,1
+2024,34,2024-11-22,Fluminense,Fortaleza,2,2
+2024,35,2024-11-23,Atlético-GO,Palmeiras,0,1
+2024,35,2024-11-23,Botafogo,Vitória,1,1
+2024,35,2024-11-23,Juventude,Cuiabá,1,1
+2024,35,2024-11-23,São Paulo,Atlético-MG,2,2
+2024,35,2024-11-24,Bahia,Athletico-PR,1,1
+2024,35,2024-11-24,Corinthians,Vasco,3,1
+2024,35,2024-11-24,Internacional,Bragantino,4,1
+2024,35,2024-11-26,Fluminense,Criciúma,0,0
+2024,35,2024-11-26,Fortaleza,Flamengo,0,0
+2024,36,2024-11-26,Atlético-MG,Juventude,2,3
+2024,36,2024-11-26,Palmeiras,Botafogo,1,3
+2024,35,2024-11-27,Cruzeiro,Grêmio,1,1
+2024,36,2024-11-30,Vasco,Atlético-GO,2,2
+2024,36,2024-11-30,Criciúma,Corinthians,2,4
+2024,36,2024-11-30,Cuiabá,Bahia,1,2
+2024,36,2024-12-01,Athletico-PR,Fluminense,1,1
+2024,36,2024-12-01,Flamengo,Internacional,3,2
+2024,36,2024-12-01,Vitória,Fortaleza,2,0
+2024,36,2024-12-01,Grêmio,São Paulo,2,1
+2024,36,2024-12-01,Bragantino,Cruzeiro,1,1
+2024,37,2024-12-03,Corinthians,Bahia,3,0
+2024,37,2024-12-04,Atlético-GO,Fortaleza,3,1
+2024,37,2024-12-04,Vasco,Atlético-MG,2,0
+2024,37,2024-12-04,Criciúma,Flamengo,0,3
+2024,37,2024-12-04,Cruzeiro,Palmeiras,1,2
+2024,37,2024-12-04,Vitória,Grêmio,1,1
+2024,37,2024-12-04,São Paulo,Juventude,1,2
+2024,37,2024-12-04,Internacional,Botafogo,0,1
+2024,37,2024-12-05,Athletico-PR,Bragantino,1,2
+2024,37,2024-12-05,Fluminense,Cuiabá,1,0
+2024,38,2024-12-08,Botafogo,São Paulo,2,1
+2024,38,2024-12-08,Atlético-MG,Athletico-PR,1,0
+2024,38,2024-12-08,Flamengo,Vitória,2,2
+2024,38,2024-12-08,Cuiabá,Vasco,1,2
+2024,38,2024-12-08,Bahia,Atlético-GO,2,0
+2024,38,2024-12-08,Juventude,Cruzeiro,0,1
+2024,38,2024-12-08,Fortaleza,Internacional,3,0
+2024,38,2024-12-08,Grêmio,Corinthians,0,3
+2024,38,2024-12-08,Bragantino,Criciúma,5,1
+2024,38,2024-12-08,Palmeiras,Fluminense,0,1
