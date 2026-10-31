@@ -44,9 +44,7 @@ def test_score_tiebreak_changes_ranking():
         TeamState("C", points=3, wins=1, goal_difference=0),
     ]
     matches = [Fixture("B", "C", Probabilities(1, 0, 0))]
-    result = simulate(
-        teams, matches, simulations=3000, seed=11, relegation_slots=1
-    )
+    result = simulate(teams, matches, simulations=3000, seed=11, relegation_slots=1)
     assert result.title["B"] == 1.0
     assert result.expected_points["B"] == 3.0
     assert result.expected_points["C"] == 3.0
@@ -55,7 +53,5 @@ def test_score_tiebreak_changes_ranking():
 def test_legacy_mode_still_supported():
     teams = [TeamState("A"), TeamState("B")]
     match = Fixture("A", "B", Probabilities(0.5, 0.25, 0.25))
-    result = simulate(
-        teams, [match], simulations=1000, relegation_slots=1, simulate_scores=False
-    )
+    result = simulate(teams, [match], simulations=1000, relegation_slots=1, simulate_scores=False)
     assert sum(result.title.values()) == pytest.approx(1.0)
