@@ -87,12 +87,14 @@ def evaluate_variable(records: list, home_lambda: float, away_lambda: float, bet
         observed_d.append(actual_h - actual_a)
         expected_d.append(mu_d)
         variance_d.append(float((matrix * (delta_grid - mu_d) ** 2).sum()))
-        errors.append((
-            -log(float(matrix[actual_h, actual_a])),
-            abs(actual_h - mu_h),
-            abs(actual_a - mu_a),
-            abs(actual_h - actual_a - mu_d),
-        ))
+        errors.append(
+            (
+                -log(float(matrix[actual_h, actual_a])),
+                abs(actual_h - mu_h),
+                abs(actual_a - mu_a),
+                abs(actual_h - actual_a - mu_d),
+            )
+        )
     a = np.array(errors)
     obs = np.array(observed_d)
     exp_d = np.array(expected_d)
@@ -127,9 +129,7 @@ def run_experiment(data_dir: Path = DATA_DIR) -> RelativeStrengthReport:
     config = EloConfig(k_factor=selected.k, home_advantage=selected.home_advantage)
     rec23, end23 = replay_1x2(s23, config, {}, selected.draw_weight)
     teams24 = {t for m in s24 for t in (m.home, m.away)}
-    rec24, end24 = replay_1x2(
-        s24, config, regress_ratings(end23, teams24), selected.draw_weight
-    )
+    rec24, end24 = replay_1x2(s24, config, regress_ratings(end23, teams24), selected.draw_weight)
     h23, a23 = fit_lambdas(rec23)
     beta23 = fit_slope(rec23, h23, a23)
     validation_global = evaluate_scores(rec24, h23, a23)
@@ -138,9 +138,7 @@ def run_experiment(data_dir: Path = DATA_DIR) -> RelativeStrengthReport:
     home_lambda, away_lambda = fit_lambdas(rec23 + rec24)
     beta_final = fit_slope(rec23 + rec24, home_lambda, away_lambda)
     teams25 = {t for m in s25 for t in (m.home, m.away)}
-    rec25, _ = replay_1x2(
-        s25, config, regress_ratings(end24, teams25), selected.draw_weight
-    )
+    rec25, _ = replay_1x2(s25, config, regress_ratings(end24, teams25), selected.draw_weight)
     return RelativeStrengthReport(
         home_lambda,
         away_lambda,
@@ -155,9 +153,7 @@ def run_experiment(data_dir: Path = DATA_DIR) -> RelativeStrengthReport:
 
 def main() -> None:
     report = run_experiment()
-    print(
-        f"Treino 2023 beta={report.beta_2023:.6f}; treino 2023-24 beta={report.beta_final:.6f}"
-    )
+    print(f"Treino 2023 beta={report.beta_2023:.6f}; treino 2023-24 beta={report.beta_final:.6f}")
     print(f"Lambda base casa={report.home_lambda:.5f}; fora={report.away_lambda:.5f}")
     for name, m in (
         ("2024 Poisson global", report.validation_global),
