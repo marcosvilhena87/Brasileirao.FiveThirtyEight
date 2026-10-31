@@ -22,3 +22,23 @@ python -m pytest -q
 ```
 
 **Cuidado:** as probabilidades Elo-Davidson por temporada seguem o protocolo existente, cuja calibracao de K/mando/empate usa a temporada 2024. Portanto, a comparacao de 2024 para o componente de gols nao e uma validacao integralmente independente de todo o pipeline. O holdout 2025 permanece protegido. Os parametros do simulador so devem mudar se a nova versao superar o Poisson global de forma robusta no teste; resultados estatisticos ainda devem ser interpretados com cautela.
+
+## Resultados observados no GitHub Actions
+
+Inclinação estimada com 2023: `beta=0.153205`. Inclinação reestimada em 2023–2024: `beta=0.127548`. Lambdas base em 2023–2024: casa `1.29610`, fora `1.15824`.
+
+| Ano e métrica | Poisson global | Poisson variável Elo |
+|---|---:|---:|
+| 2024: log loss placar exato ↓ | 2.72197 | **2.72106** |
+| 2024: MAE saldo ↓ | 1.13936 | **1.13369** |
+| 2025: log loss placar exato ↓ | 2.84516 | **2.82744** |
+| 2025: MAE gols casa ↓ | 0.95770 | **0.95323** |
+| 2025: MAE gols fora ↓ | 0.79219 | **0.79022** |
+| 2025: MAE saldo ↓ | 1.23931 | **1.23072** |
+| 2025: viés saldo (previsto − observado) | −0.24197 | **−0.20629** |
+| 2025: variância saldo prevista | 2.44509 | **2.53213** |
+| 2025: variância saldo observada | 2.88600 | 2.88600 |
+
+Em 2025, melhoria relativa de **0,62% no log loss exato** e **0,69% no MAE saldo**. Ganho pequeno; não há intervalo de confiança da diferença. Ainda existe subdispersão do saldo. O modelo será mantido **experimental**, sem substituir automaticamente os lambdas globais do motor de Monte Carlo.
+
+[Execução reproduzível](https://github.com/marcosvilhena87/Brasileirao.FiveThirtyEight/actions/runs/41223386346).
