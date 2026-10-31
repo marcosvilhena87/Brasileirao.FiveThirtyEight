@@ -92,9 +92,7 @@ def simulate(
     initial_gf = np.array([t.goals_for for t in teams], dtype=np.int32)
     models = (
         [
-            conditioned_poisson(
-                f.probabilities, home_lambda=home_lambda, away_lambda=away_lambda
-            )
+            conditioned_poisson(f.probabilities, home_lambda=home_lambda, away_lambda=away_lambda)
             for f in fixtures
         ]
         if simulate_scores
