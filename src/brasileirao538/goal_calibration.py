@@ -133,28 +133,9 @@ def evaluate_independent_baseline(
     records: list, home_lambda: float, away_lambda: float
 ) -> GoalMetrics:
     """Baseline: duas Poisson independentes, parametros treinados em 2023-24."""
-    from brasileirao538.probabilities import Probabilities
-
     h = np.arange(MAX_GOALS + 1)
     matrix = poisson.pmf(h, home_lambda)[:, None] * poisson.pmf(h, away_lambda)[None, :]
     matrix /= matrix.sum()
-    grid_h, grid_a = np.indices(matrix.shape)
-    p = Probabilities(
-        float(matrix[grid_h > grid_a].sum()),
-        float(matrix[grid_h == grid_a].sum()),
-        float(matrix[grid_h < grid_a].sum()),
-    )
-    # Para o baseline independente, calcular metricas com matriz constante,
-    # sem alterar probabilidades via condicionamento a outro 1X2.
-    from brasileirao538.scores import ScoreModel
-
-    base = ScoreModel(matrix, MAX_GOALS)
-    class StaticScore:
-        def __init__(self, probabilities):
-            self.probabilities = probabilities
-
-    # Reusar calculo de metricas com observacoes e matriz fixa.
-    del p, StaticScore, base
     observed_h = np.array([m.home_goals for m, _ in records])
     observed_a = np.array([m.away_goals for m, _ in records])
     likelihood = matrix[observed_h, observed_a]
