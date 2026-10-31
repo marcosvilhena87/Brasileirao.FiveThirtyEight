@@ -1,9 +1,9 @@
 """Calibracao 1X2 e bootstrap temporal em 2025, sem recalibrar o modelo."""
 
 import random
-from itertools import pairwise
 from collections import defaultdict
 from dataclasses import dataclass
+from itertools import pairwise
 
 from brasileirao538.elo import EloConfig
 from brasileirao538.experiment1x2 import (
