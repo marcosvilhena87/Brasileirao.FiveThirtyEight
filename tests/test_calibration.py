@@ -18,8 +18,8 @@ def test_all_classes_cover_every_game():
 
 
 def test_bootstrap_is_reproducible():
-    from brasileirao538.experiment1x2 import replay_1x2
     from brasileirao538.elo import EloConfig
+    from brasileirao538.experiment1x2 import replay_1x2
 
     matches = read_season(2025)[:10]
     records, _ = replay_1x2(matches, EloConfig(), {}, 0.75)
