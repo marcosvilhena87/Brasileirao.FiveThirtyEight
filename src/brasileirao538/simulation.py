@@ -117,7 +117,13 @@ def simulate(
         for criterion in (gf, gd):
             ranks = np.take_along_axis(
                 ranks,
-                np.argsort(-np.broadcast_to(criterion, (batch, n)), axis=1, stable=True),
+                np.argsort(
+                    -np.take_along_axis(
+                        np.broadcast_to(criterion, (batch, n)), ranks, axis=1
+                    ),
+                    axis=1,
+                    stable=True,
+                ),
                 axis=1,
             )
         for criterion in (wins, points):
