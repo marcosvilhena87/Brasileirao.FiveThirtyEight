@@ -1,6 +1,7 @@
 """Calibracao 1X2 e bootstrap temporal em 2025, sem recalibrar o modelo."""
 
 import random
+from itertools import pairwise
 from collections import defaultdict
 from dataclasses import dataclass
 
@@ -27,11 +28,11 @@ class Bin:
 
 def calibration_bins(records: list, edges: tuple[float, ...] = (0, 0.2, 0.4, 0.6, 0.8, 1)) -> list[Bin]:
     """Binagem fixa por classe; faixas finais incluem p=1."""
-    if edges[0] != 0 or edges[-1] != 1 or any(a >= b for a, b in zip(edges, edges[1:])):
+    if edges[0] != 0 or edges[-1] != 1 or any(a >= b for a, b in pairwise(edges)):
         raise ValueError("Faixas invalidas")
     output = []
     for index, category in enumerate(("home", "draw", "away")):
-        for low, high in zip(edges, edges[1:]):
+        for low, high in pairwise(edges):
             selected = [
                 (p.as_tuple()[index], int(outcome(m) == index))
                 for m, p in records
