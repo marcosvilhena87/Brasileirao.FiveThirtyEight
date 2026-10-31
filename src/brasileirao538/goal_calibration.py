@@ -13,7 +13,6 @@ from brasileirao538.experiment1x2 import replay_1x2, run_experiment_1x2
 from brasileirao538.scores import conditioned_poisson
 from brasileirao538.training import DATA_DIR, read_season, regress_ratings
 
-
 MAX_GOALS = 10
 
 
