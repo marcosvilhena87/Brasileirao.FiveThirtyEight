@@ -29,8 +29,13 @@ def load_matches(path: str | Path) -> list[Match]:
             raise ValueError("Cabecalho CSV incompatível")
         matches = [
             Match(
-                int(row["season"]), int(row["round"]), date.fromisoformat(row["date"]),
-                row["home"], row["away"], int(row["home_goals"]), int(row["away_goals"])
+                int(row["season"]),
+                int(row["round"]),
+                date.fromisoformat(row["date"]),
+                row["home"],
+                row["away"],
+                int(row["home_goals"]),
+                int(row["away_goals"]),
             )
             for row in reader
         ]
@@ -59,8 +64,9 @@ def standings(matches: list[Match]) -> list[dict]:
     stats: dict[str, dict] = {}
     for m in matches:
         for team in (m.home, m.away):
-            stats.setdefault(team, {"team": team, "points": 0, "played": 0,
-                                    "wins": 0, "gf": 0, "ga": 0})
+            stats.setdefault(
+                team, {"team": team, "points": 0, "played": 0, "wins": 0, "gf": 0, "ga": 0}
+            )
         h, a = stats[m.home], stats[m.away]
         h["played"] += 1
         a["played"] += 1
@@ -83,7 +89,9 @@ def standings(matches: list[Match]) -> list[dict]:
     )
 
 
-def elo_history(matches: list[Match], config: EloConfig | None = None) -> tuple[EloRatings, list[dict]]:
+def elo_history(
+    matches: list[Match], config: EloConfig | None = None
+) -> tuple[EloRatings, list[dict]]:
     """Atualiza Elo por data; jogos no mesmo dia usam ratings do inicio do dia.
 
     Sem horarios completos no dataset, nao se presume ordem intradiaria.
@@ -103,11 +111,19 @@ def elo_history(matches: list[Match], config: EloConfig | None = None) -> tuple[
             result = update_ratings(rh, ra, m.home_goals, m.away_goals, model.config)
             changes[m.home] += result.home_after - rh
             changes[m.away] += result.away_after - ra
-            timeline.append({
-                "date": day.isoformat(), "round": m.round, "home": m.home, "away": m.away,
-                "expected_home": result.expected_home, "home_before": rh, "away_before": ra,
-                "home_after": result.home_after, "away_after": result.away_after,
-            })
+            timeline.append(
+                {
+                    "date": day.isoformat(),
+                    "round": m.round,
+                    "home": m.home,
+                    "away": m.away,
+                    "expected_home": result.expected_home,
+                    "home_before": rh,
+                    "away_before": ra,
+                    "home_after": result.home_after,
+                    "away_after": result.away_after,
+                }
+            )
         for team, delta in changes.items():
             model.ratings[team] = snapshot.get(team, model.config.initial_rating) + delta
     return model, timeline
@@ -120,7 +136,9 @@ def main() -> None:
     model, _ = elo_history(matches)
     print("Brasileirao 2025 | 380 partidas | Elo v1 retrospectivo")
     for place, item in enumerate(standings(matches), 1):
-        print(f'{place:2}. {item["team"]:16} {item["points"]:2} pts | Elo {model.rating(item["team"]):.1f}')
+        print(
+            f"{place:2}. {item['team']:16} {item['points']:2} pts | Elo {model.rating(item['team']):.1f}"
+        )
     print("Parametros nao calibrados. Resultados conhecidos; nao e backtest preditivo.")
 
 
