@@ -4,8 +4,8 @@ from datetime import date
 from pathlib import Path
 
 import pytest
-from brasileirao538.season2025 import Match, elo_history, load_matches, standings
 
+from brasileirao538.season2025 import Match, elo_history, load_matches, standings
 
 CSV = Path(__file__).resolve().parents[1] / "data/processed/brasileirao_2025.csv"
 
