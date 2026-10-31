@@ -29,3 +29,23 @@ O código foi separado em `src/brasileirao538/calibration.py`; testes verificam 
 ## Próxima validação
 
 Adicionar rolling-origin com mais temporadas, bootstrap temporal com blocos de dias consecutivos, reliability diagrams e análise de empates. Considerar métricas de calibração por classe e por faixa acompanhadas de contagens e incerteza; evitar leituras causais.
+
+## Diagnóstico numérico preliminar (2025)
+
+Nas 380 partidas, o ganho médio de perda do Davidson em relação às frequências históricas 2023–24 foi de **0.022121 no Brier multiclasses** e **0.031780 no log loss** (baseline menos Davidson). A auditoria por blocos identificou **110 datas** com jogos.
+
+| Evento e faixa de probabilidade | n | Previsto (média) | Observado |
+|---|---:|---:|---:|
+| Casa, 20–40% | 123 | 34.0% | 37.4% |
+| Casa, 40–60% | 230 | 48.5% | 54.3% |
+| Casa, 60–80% | 26 | 63.9% | 76.9% |
+| Empate, 20–40% | 378 | 26.2% | 26.2% |
+| Fora, 0–20% | 51 | 16.0% | 7.8% |
+| Fora, 20–40% | 284 | 29.0% | 23.9% |
+| Fora, 40–60% | 45 | 44.3% | 40.0% |
+
+Faixas com apenas 1 ou 2 jogos foram omitidas desta tabela e permanecem no relatório do programa. O peso de empate concentra quase todas as previsões dessa classe numa só faixa: isso limita a resolução da análise de calibração.
+
+Como verificação independente, um bootstrap por 110 blocos de datas, 10.000 réplicas e gerador pseudoaleatório separado indicou **intervalos percentis aproximados** de **[0.0069, 0.0372] para o ganho em Brier** e **[0.0110, 0.0526] para o ganho em log loss**. Esses intervalos são aproximações de conferência; a implementação Python usa 5.000 réplicas e outra sequência aleatória, de modo que seus limites exatos podem diferir.
+
+**Interpretação:** a vantagem média contra o baseline histórico parece positiva também após a reamostragem de datas, mas há indícios de subestimação de mandantes e superestimação de visitantes. Não aplicar pós-calibração nos resultados de 2025 e continuar chamando a mesma amostra de teste independente.
