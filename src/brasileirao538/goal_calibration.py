@@ -54,6 +54,7 @@ def fit_lambdas(records: list) -> tuple[float, float]:
         raise ValueError("Nao ha jogos para treinamento")
     home, away = _observations(records)
     outcomes = np.sign(home - away)
+
     def loss(parameters: np.ndarray) -> float:
         lh, la = np.exp(parameters)
         h = np.arange(MAX_GOALS + 1)
@@ -69,6 +70,7 @@ def fit_lambdas(records: list) -> tuple[float, float]:
         if np.any(likelihood <= 0):
             return float("inf")
         return float(-np.log(likelihood).mean())
+
     result = minimize(
         loss,
         np.log([1.45, 1.15]),
@@ -121,8 +123,7 @@ def evaluate_scores(records: list, home_lambda: float, away_lambda: float) -> Go
         difference_mae=float(np.mean(errors_d)),
         difference_bias=float(np.mean(biases)),
         difference_variance_predicted=float(
-            np.mean(predicted_variances)
-            + np.var(np.array(observed_differences) + np.array(biases))
+            np.mean(predicted_variances) + np.var(np.array(observed_differences) + np.array(biases))
         ),
         difference_variance_observed=float(np.var(observed_differences)),
     )
@@ -161,14 +162,10 @@ def run_goal_experiment(data_dir: Path = DATA_DIR) -> GoalReport:
     cfg = EloConfig(k_factor=chosen.k, home_advantage=chosen.home_advantage)
     rec23, end23 = replay_1x2(s23, cfg, {}, chosen.draw_weight)
     teams24 = {t for m in s24 for t in (m.home, m.away)}
-    rec24, end24 = replay_1x2(
-        s24, cfg, regress_ratings(end23, teams24), chosen.draw_weight
-    )
+    rec24, end24 = replay_1x2(s24, cfg, regress_ratings(end23, teams24), chosen.draw_weight)
     lh, la = fit_lambdas(rec23 + rec24)
     teams25 = {t for m in s25 for t in (m.home, m.away)}
-    rec25, _ = replay_1x2(
-        s25, cfg, regress_ratings(end24, teams25), chosen.draw_weight
-    )
+    rec25, _ = replay_1x2(s25, cfg, regress_ratings(end24, teams25), chosen.draw_weight)
     return GoalReport(
         lh,
         la,
