@@ -26,7 +26,9 @@ class Bin:
     observed: float
 
 
-def calibration_bins(records: list, edges: tuple[float, ...] = (0, 0.2, 0.4, 0.6, 0.8, 1)) -> list[Bin]:
+def calibration_bins(
+    records: list, edges: tuple[float, ...] = (0, 0.2, 0.4, 0.6, 0.8, 1)
+) -> list[Bin]:
     """Binagem fixa por classe; faixas finais incluem p=1."""
     if edges[0] != 0 or edges[-1] != 1 or any(a >= b for a, b in pairwise(edges)):
         raise ValueError("Faixas invalidas")
@@ -39,11 +41,16 @@ def calibration_bins(records: list, edges: tuple[float, ...] = (0, 0.2, 0.4, 0.6
                 if low <= p.as_tuple()[index] < high or (high == 1 and p.as_tuple()[index] == 1)
             ]
             if selected:
-                output.append(Bin(
-                    category, low, high, len(selected),
-                    sum(p for p, _ in selected) / len(selected),
-                    sum(y for _, y in selected) / len(selected),
-                ))
+                output.append(
+                    Bin(
+                        category,
+                        low,
+                        high,
+                        len(selected),
+                        sum(p for p, _ in selected) / len(selected),
+                        sum(y for _, y in selected) / len(selected),
+                    )
+                )
     return output
 
 
@@ -60,10 +67,12 @@ def bootstrap_advantage(
     days = defaultdict(list)
     for match, p in records:
         y = outcome(match)
-        days[match.date].append((
-            brier_multiclass(baseline, y) - brier_multiclass(p, y),
-            log_loss(baseline, y) - log_loss(p, y),
-        ))
+        days[match.date].append(
+            (
+                brier_multiclass(baseline, y) - brier_multiclass(p, y),
+                log_loss(baseline, y) - log_loss(p, y),
+            )
+        )
     blocks = list(days.values())
     count = len(blocks)
     rng = random.Random(seed)
@@ -79,12 +88,15 @@ def bootstrap_advantage(
                 sums[1] += log_delta
         for index in (0, 1):
             samples[index].append(sums[index] / n)
+
     def interval(values: list[float]) -> tuple[float, float]:
         ordered = sorted(values)
-        return ordered[int(0.025 * repetitions)], ordered[min(repetitions - 1, int(0.975 * repetitions))]
+        return ordered[int(0.025 * repetitions)], ordered[
+            min(repetitions - 1, int(0.975 * repetitions))
+        ]
+
     observed = [
-        sum(item[index] for block in blocks for item in block) / len(records)
-        for index in (0, 1)
+        sum(item[index] for block in blocks for item in block) / len(records) for index in (0, 1)
     ]
     return {
         "date_blocks": count,
