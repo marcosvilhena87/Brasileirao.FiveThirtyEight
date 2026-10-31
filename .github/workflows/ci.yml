@@ -20,3 +20,5 @@ jobs:
         run: ruff format --check .
       - name: Tests
         run: python -m pytest -q
+      - name: Score calibration report (2025 holdout)
+        run: python -m brasileirao538.goal_calibration
