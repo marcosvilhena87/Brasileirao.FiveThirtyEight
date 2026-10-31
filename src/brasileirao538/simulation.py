@@ -61,8 +61,8 @@ def simulate(
     relegation_slots: int = 4,
     batch_size: int = 10_000,
     simulate_scores: bool = True,
-    home_lambda: float = 1.45,
-    away_lambda: float = 1.15,
+    home_lambda: float = 1.29610,
+    away_lambda: float = 1.15824,
 ) -> SimulationResult:
     """Sorteia placares, pontos e colocacoes; empate residual por ordem de entrada.
 
