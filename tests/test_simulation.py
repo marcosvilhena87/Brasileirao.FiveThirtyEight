@@ -11,7 +11,7 @@ def test_deterministic_300000_simulations():
     teams = [TeamState("A"), TeamState("B")]
     games = [Fixture("A", "B", Probabilities(0.5, 0.25, 0.25))]
     a = simulate(teams, games, simulations=300_000, seed=2026, relegation_slots=1)
-    b = simulate(teams, games, simulations=300_000, seed=2026)
+    b = simulate(teams, games, simulations=300_000, seed=2026, relegation_slots=1)
     assert a == b
     assert a.title["A"] == pytest.approx(0.75, abs=0.004)
     assert a.title["B"] == pytest.approx(0.25, abs=0.004)
