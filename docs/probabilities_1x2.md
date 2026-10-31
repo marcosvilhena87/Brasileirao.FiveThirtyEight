@@ -27,3 +27,16 @@ python -m pytest -q
 ```
 
 Amostra pequena para calibração: verificar estabilidade por outros anos e calibração probabilística por faixas antes de usar como motor de Monte Carlo.
+
+## Resultados reproduzidos (380 partidas por temporada)
+
+Configuração selecionada em 2024: `K=30`, `H=80`, `nu=0.75`.
+
+| Amostra/modelo | Brier | Log loss |
+|---|---:|---:|
+| 2024, validação Davidson | 0.618547 | 1.030611 |
+| 2025, teste Davidson | 0.603187 | 1.008360 |
+| 2025, frequências históricas fixas 2023–24 | 0.625308 | 1.040141 |
+| 2025, uniforme | 0.666667 | 1.098612 |
+
+Frequências 2023–24: `P(casa)=0.471053`, `P(empate)=0.261842`, `P(fora)=0.267105`. A melhora de 2025 é descritiva: não foram estimados intervalos de confiança.
