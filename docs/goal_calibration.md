@@ -25,4 +25,22 @@ python -m pytest -q
 
 ## Limitações
 
-Dois lambdas globais para todos os confrontos simplificam demais o padrão de gols, mesmo após a condição 1X2. A vantagem do modelo não é garantida: comparar numericamente com o baseline. Os testes garantem integridade técnica, não significância estatística. Para regressões futuras, experimentar intensidades ligadas à diferença de rating e parâmetros temporais, com validação separada. O motor Monte Carlo atual possui parâmetros default ilustrativos; a integração dos lambdas calibrados como defaults deve ocorrer somente após avaliação explícita.
+Dois lambdas globais para todos os confrontos simplificam demais o padrão de gols, mesmo após a condição 1X2. A vantagem do modelo não é garantida: comparar numericamente com o baseline. Os testes garantem integridade técnica, não significância estatística. Para regressões futuras, experimentar intensidades ligadas à diferença de rating e parâmetros temporais, com validação separada. Após avaliação explícita no holdout, os valores arredondados dos lambdas calibrados foram adotados como padrões em `scores.py` e `simulation.py`; alterações futuras devem manter avaliação independente.
+
+## Resultados executados no GitHub Actions
+
+Parâmetros ajustados em **760 jogos de 2023–2024**: mandante **1,29610**, visitante **1,15824**. Resultados nos **380 jogos de 2025**, sem reajuste:
+
+| Indicador | Davidson + Poisson condicionado | Poisson histórico constante |
+|---|---:|---:|
+| Log loss de placar exato ↓ | **2,84516** | 2,87688 |
+| MAE gols mandante ↓ | **0,95770** | 0,99934 |
+| MAE gols visitante ↓ | 0,79219 | **0,78463** |
+| MAE diferença de gols ↓ | **1,23931** | 1,30073 |
+| Viés da diferença (previsto − real) | −0,24197 | −0,16711 |
+| Variância preditiva da diferença | 2,44509 | 2,46707 |
+| Variância observada da diferença | 2,88600 | 2,88600 |
+
+Redução de **1,10% no log loss exato** e **4,72% no MAE da diferença de gols** frente ao baseline. O viés do saldo piorou, e as duas distribuições subestimaram a dispersão observada. Portanto, a melhoria não é uniforme entre métricas; não há teste de significância para diferenças de perda.
+
+[Execução original](https://github.com/marcosvilhena87/Brasileirao.FiveThirtyEight/actions/runs/41222764263).
