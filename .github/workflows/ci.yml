@@ -22,3 +22,5 @@ jobs:
         run: python -m pytest -q
       - name: Score calibration report (2025 holdout)
         run: python -m brasileirao538.goal_calibration
+      - name: Relative goal intensity temporal evaluation
+        run: python -m brasileirao538.relative_goals
