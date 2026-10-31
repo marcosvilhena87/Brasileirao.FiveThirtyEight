@@ -4,7 +4,6 @@ from datetime import date
 from pathlib import Path
 
 import pytest
-
 from brasileirao538.season2025 import Match, elo_history, load_matches, standings
 
 
