@@ -18,9 +18,10 @@ class EloConfig:
     scale: float = 400.0
 
     def __post_init__(self) -> None:
-        if not all(isfinite(x) for x in (
-            self.initial_rating, self.k_factor, self.home_advantage, self.scale
-        )):
+        if not all(
+            isfinite(x)
+            for x in (self.initial_rating, self.k_factor, self.home_advantage, self.scale)
+        ):
             raise ValueError("Parametros Elo devem ser finitos")
         if self.k_factor <= 0 or self.scale <= 0:
             raise ValueError("k_factor e scale devem ser positivos")
@@ -57,7 +58,7 @@ def expected_home_score(
     if exponent >= 0:
         factor = 10.0 ** (-exponent) if exponent < 300 else 0.0
         return factor / (1.0 + factor)
-    factor = 10.0 ** exponent if exponent > -300 else 0.0
+    factor = 10.0**exponent if exponent > -300 else 0.0
     return 1.0 / (1.0 + factor)
 
 
@@ -72,9 +73,12 @@ def update_ratings(
 ) -> EloResult:
     """Atualiza simultaneamente dois ratings apos partida finalizada."""
     if (
-        isinstance(home_goals, bool) or isinstance(away_goals, bool)
-        or not isinstance(home_goals, int) or not isinstance(away_goals, int)
-        or home_goals < 0 or away_goals < 0
+        isinstance(home_goals, bool)
+        or isinstance(away_goals, bool)
+        or not isinstance(home_goals, int)
+        or not isinstance(away_goals, int)
+        or home_goals < 0
+        or away_goals < 0
     ):
         raise ValueError("Gols devem ser inteiros nao negativos")
     cfg = config or EloConfig()
