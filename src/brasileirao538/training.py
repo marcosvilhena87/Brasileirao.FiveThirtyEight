@@ -10,8 +10,7 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from brasileirao538.elo import EloConfig, EloRatings
-from brasileirao538.season2025 import Match, elo_history, standings
-
+from brasileirao538.season2025 import Match, elo_history
 
 DATA_DIR = Path(__file__).resolve().parents[2] / "data" / "processed"
 
