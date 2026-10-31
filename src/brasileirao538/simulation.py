@@ -1,9 +1,4 @@
-"""Monte Carlo vetorizado com probabilidades 1X2 e memoria limitada.
-
-Somente pontos e vitorias futuras podem ser inferidos diretamente do 1X2.
-Saldo e gols marcados permanecem congelados na entrada: desempates que
-dependem desses campos sao aproximados; os demais seguem ordem de entrada.
-"""
+"""Monte Carlo vetorizado com placares Poisson condicionados ao 1X2."""
 
 from dataclasses import dataclass
 
@@ -11,6 +6,7 @@ import numpy as np
 
 from brasileirao538.elo import EloConfig
 from brasileirao538.probabilities import Probabilities, predict_1x2
+from brasileirao538.scores import conditioned_poisson
 
 
 @dataclass(frozen=True)
@@ -64,11 +60,14 @@ def simulate(
     seed: int = 2026,
     relegation_slots: int = 4,
     batch_size: int = 10_000,
+    simulate_scores: bool = True,
+    home_lambda: float = 1.45,
+    away_lambda: float = 1.15,
 ) -> SimulationResult:
-    """Distribuicao de posicoes e pontos por sorteio de partidas independentes.
+    """Sorteia placares, pontos e colocacoes; empate residual por ordem de entrada.
 
-    Criterio: pontos, vitorias, saldo congelado, gols pro congelados,
-    e indice de entrada como desempate tecnico residual.
+    Lambdas de gols sao parametros iniciais nao calibrados. Com
+    simulate_scores=False preserva metodo anterior com saldo congelado.
     """
     if not teams or len({t.name for t in teams}) != len(teams):
         raise ValueError("Times vazios ou repetidos")
@@ -89,8 +88,16 @@ def simulate(
     draw_prob = np.array([f.probabilities.draw for f in fixtures])
     initial_points = np.array([t.points for t in teams], dtype=np.int32)
     initial_wins = np.array([t.wins for t in teams], dtype=np.int32)
-    gd = np.array([t.goal_difference for t in teams])
-    gf = np.array([t.goals_for for t in teams])
+    initial_gd = np.array([t.goal_difference for t in teams], dtype=np.int32)
+    initial_gf = np.array([t.goals_for for t in teams], dtype=np.int32)
+    models = (
+        [
+            conditioned_poisson(f.probabilities, home_lambda=home_lambda, away_lambda=away_lambda)
+            for f in fixtures
+        ]
+        if simulate_scores
+        else []
+    )
     rng = np.random.default_rng(seed)
     positions = np.zeros((n, n), dtype=np.int64)
     point_totals = np.zeros(n, dtype=np.int64)
@@ -99,12 +106,27 @@ def simulate(
         batch = min(batch_size, simulations - processed)
         points = np.broadcast_to(initial_points, (batch, n)).copy()
         wins = np.broadcast_to(initial_wins, (batch, n)).copy()
-        # Uma chamada por partida; semente e ordem do calendario devem ser fixas.
+        gd = np.broadcast_to(initial_gd, (batch, n)).copy()
+        gf = np.broadcast_to(initial_gf, (batch, n)).copy()
+        # Placar sorteado condiciona a categoria 1X2, preservando sua marginal.
         for j in range(len(fixtures)):
-            random_values = rng.random(batch)
-            home_win = random_values < home_prob[j]
-            draw = (random_values >= home_prob[j]) & (random_values < home_prob[j] + draw_prob[j])
-            away_win = ~(home_win | draw)
+            if simulate_scores:
+                home_goals, away_goals = models[j].sample(rng, batch)
+                home_win = home_goals > away_goals
+                draw = home_goals == away_goals
+                away_win = home_goals < away_goals
+                difference = home_goals - away_goals
+                gd[:, home_idx[j]] += difference
+                gd[:, away_idx[j]] -= difference
+                gf[:, home_idx[j]] += home_goals
+                gf[:, away_idx[j]] += away_goals
+            else:
+                random_values = rng.random(batch)
+                home_win = random_values < home_prob[j]
+                draw = (random_values >= home_prob[j]) & (
+                    random_values < home_prob[j] + draw_prob[j]
+                )
+                away_win = ~(home_win | draw)
             points[:, home_idx[j]] += 3 * home_win + draw
             points[:, away_idx[j]] += 3 * away_win + draw
             wins[:, home_idx[j]] += home_win
