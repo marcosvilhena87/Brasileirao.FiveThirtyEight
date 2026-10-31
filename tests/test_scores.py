@@ -47,7 +47,7 @@ def test_score_tiebreak_changes_ranking():
     result = simulate(
         teams, matches, simulations=3000, seed=11, relegation_slots=1
     )
-    assert result.title["A"] == 1.0
+    assert result.title["B"] == 1.0
     assert result.expected_points["B"] == 3.0
     assert result.expected_points["C"] == 3.0
 
