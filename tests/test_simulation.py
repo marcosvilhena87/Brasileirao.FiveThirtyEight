@@ -10,7 +10,7 @@ from brasileirao538.simulation import Fixture, TeamState, fixtures_from_elo, sim
 def test_deterministic_300000_simulations():
     teams = [TeamState("A"), TeamState("B")]
     games = [Fixture("A", "B", Probabilities(0.5, 0.25, 0.25))]
-    a = simulate(teams, games, simulations=300_000, seed=2026)
+    a = simulate(teams, games, simulations=300_000, seed=2026, relegation_slots=1)
     b = simulate(teams, games, simulations=300_000, seed=2026)
     assert a == b
     assert a.title["A"] == pytest.approx(0.75, abs=0.004)
@@ -47,6 +47,7 @@ def test_fixed_one_game_result():
         [Fixture("A", "B", Probabilities(1, 0, 0))],
         simulations=100,
         batch_size=7,
+        relegation_slots=1,
     )
     assert result.title["A"] == 1
     assert result.expected_points["A"] == 3
