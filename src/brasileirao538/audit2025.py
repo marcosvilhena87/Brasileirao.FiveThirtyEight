@@ -2,9 +2,14 @@
 
 from collections import defaultdict
 
-from brasileirao538.elo import EloConfig
-from brasileirao538.training import _replay, evaluate_year, read_season, regress_ratings, run_experiment
-from brasileirao538.elo import EloRatings
+from brasileirao538.elo import EloConfig, EloRatings
+from brasileirao538.training import (
+    _replay,
+    evaluate_year,
+    read_season,
+    regress_ratings,
+    run_experiment,
+)
 
 
 def squared_error(score: float, expected: float) -> float:
