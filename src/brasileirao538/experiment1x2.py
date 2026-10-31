@@ -39,9 +39,7 @@ def replay_1x2(matches: list, config: EloConfig, priors: dict, draw_weight: floa
             home = snapshot.get(match.home, config.initial_rating)
             away = snapshot.get(match.away, config.initial_rating)
             records.append((match, predict_1x2(home, away, draw_weight, config)))
-            result = update_ratings(
-                home, away, match.home_goals, match.away_goals, config
-            )
+            result = update_ratings(home, away, match.home_goals, match.away_goals, config)
             deltas[match.home] += result.home_after - home
             deltas[match.away] += result.away_after - away
         for team, delta in deltas.items():
