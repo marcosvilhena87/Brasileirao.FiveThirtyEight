@@ -12,8 +12,8 @@ from brasileirao538.training import read_season
 
 
 def test_fit_uses_past_matches_and_returns_positive_values():
-    from brasileirao538.experiment1x2 import replay_1x2
     from brasileirao538.elo import EloConfig
+    from brasileirao538.experiment1x2 import replay_1x2
 
     matches = read_season(2023)
     records, _ = replay_1x2(matches, EloConfig(), {}, 0.75)
