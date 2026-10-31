@@ -52,7 +52,9 @@ def read_season(year: int, data_dir: Path = DATA_DIR) -> list[Match]:
     return sorted(matches, key=lambda m: (m.date, m.round, m.home))
 
 
-def regress_ratings(previous: dict[str, float], teams: set[str], strength: float = 0.75) -> dict[str, float]:
+def regress_ratings(
+    previous: dict[str, float], teams: set[str], strength: float = 0.75
+) -> dict[str, float]:
     """Regressao a 1500; promovidos entram em 1500 (sem informacao da Serie B)."""
     if not 0 <= strength <= 1:
         raise ValueError("strength deve estar entre 0 e 1")
@@ -77,16 +79,23 @@ def evaluate_year(
     """
     model = EloRatings(config, dict(priors or {}))
     model, timeline = elo_history(matches, config=config) if not priors else _replay(model, matches)
-    score_by_pair = {(m.date.isoformat(), m.home, m.away): (
-        1.0 if m.home_goals > m.away_goals else 0.0 if m.home_goals < m.away_goals else 0.5
-    ) for m in matches}
+    score_by_pair = {
+        (m.date.isoformat(), m.home, m.away): (
+            1.0 if m.home_goals > m.away_goals else 0.0 if m.home_goals < m.away_goals else 0.5
+        )
+        for m in matches
+    }
     errors = [
         score_by_pair[(row["date"], row["home"], row["away"])] - row["expected_home"]
         for row in timeline
     ]
     return (
-        Evaluation(matches[0].season, sum(e * e for e in errors) / len(errors),
-                   sum(abs(e) for e in errors) / len(errors), len(errors)),
+        Evaluation(
+            matches[0].season,
+            sum(e * e for e in errors) / len(errors),
+            sum(abs(e) for e in errors) / len(errors),
+            len(errors),
+        ),
         dict(model.ratings),
     )
 
@@ -110,8 +119,14 @@ def _replay(model: EloRatings, matches: list[Match]) -> tuple[EloRatings, list[d
             result = update_ratings(rh, ra, m.home_goals, m.away_goals, model.config)
             deltas[m.home] += result.home_after - rh
             deltas[m.away] += result.away_after - ra
-            timeline.append({"date": day.isoformat(), "home": m.home,
-                             "away": m.away, "expected_home": result.expected_home})
+            timeline.append(
+                {
+                    "date": day.isoformat(),
+                    "home": m.home,
+                    "away": m.away,
+                    "expected_home": result.expected_home,
+                }
+            )
         for team, delta in deltas.items():
             model.ratings[team] = before.get(team, model.config.initial_rating) + delta
     return model, timeline
@@ -151,13 +166,17 @@ def run_experiment(data_dir: Path = DATA_DIR) -> Report:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Calibracao Elo e avaliacao holdout Brasileirao 2025")
+    parser = argparse.ArgumentParser(
+        description="Calibracao Elo e avaliacao holdout Brasileirao 2025"
+    )
     parser.parse_args()
     report = run_experiment()
     print(f"Parametros por validacao 2024: K={report.k:g}; mando={report.home_advantage:g}")
-    for label, item in (("Treino 2023", report.train_2023),
-                        ("Validacao 2024", report.validation_2024),
-                        ("Teste 2025", report.holdout_2025)):
+    for label, item in (
+        ("Treino 2023", report.train_2023),
+        ("Validacao 2024", report.validation_2024),
+        ("Teste 2025", report.holdout_2025),
+    ):
         print(f"{label}: n={item.matches} MSE={item.mse:.5f} MAE={item.mae:.5f}")
     print("Ratings finais 2025 (retrospectivos):")
     for team, rating in sorted(report.final_ratings.items(), key=lambda x: -x[1]):
