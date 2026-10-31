@@ -49,8 +49,8 @@ class ScoreModel:
 def conditioned_poisson(
     probabilities: Probabilities,
     *,
-    home_lambda: float = 1.45,
-    away_lambda: float = 1.15,
+    home_lambda: float = 1.29610,
+    away_lambda: float = 1.15824,
     max_goals: int = 10,
 ) -> ScoreModel:
     """Repondera Poisson por classe para respeitar 1X2 exatamente.
