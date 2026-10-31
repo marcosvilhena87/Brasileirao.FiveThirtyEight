@@ -52,8 +52,7 @@ def fixtures_from_elo(
     if any(team not in ratings for fixture in fixtures for team in fixture):
         raise ValueError("Todos os times precisam de rating inicial")
     return [
-        Fixture(h, a, predict_1x2(ratings[h], ratings[a], draw_weight, cfg))
-        for h, a in fixtures
+        Fixture(h, a, predict_1x2(ratings[h], ratings[a], draw_weight, cfg)) for h, a in fixtures
     ]
 
 
@@ -104,9 +103,7 @@ def simulate(
         for j in range(len(fixtures)):
             random_values = rng.random(batch)
             home_win = random_values < home_prob[j]
-            draw = (random_values >= home_prob[j]) & (
-                random_values < home_prob[j] + draw_prob[j]
-            )
+            draw = (random_values >= home_prob[j]) & (random_values < home_prob[j] + draw_prob[j])
             away_win = ~(home_win | draw)
             points[:, home_idx[j]] += 3 * home_win + draw
             points[:, away_idx[j]] += 3 * away_win + draw
@@ -118,9 +115,7 @@ def simulate(
             ranks = np.take_along_axis(
                 ranks,
                 np.argsort(
-                    -np.take_along_axis(
-                        np.broadcast_to(criterion, (batch, n)), ranks, axis=1
-                    ),
+                    -np.take_along_axis(np.broadcast_to(criterion, (batch, n)), ranks, axis=1),
                     axis=1,
                     stable=True,
                 ),
@@ -145,7 +140,8 @@ def simulate(
         title={team: float(positions[i, 0] / simulations) for i, team in enumerate(names)},
         relegation={
             team: float(positions[i, n - relegation_slots :].sum() / simulations)
-            if relegation_slots else 0.0
+            if relegation_slots
+            else 0.0
             for i, team in enumerate(names)
         },
         expected_points={
