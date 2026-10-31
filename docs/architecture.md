@@ -16,3 +16,7 @@ Usar somente informacoes disponiveis na data de cada previsao; nao incorporar re
 ## Proximas implementacoes
 
 Definir interfaces de entrada/saida, invariantes de classificacao e testes de determinismo antes de incluir dados historicos reais.
+
+## Elo v1
+
+O modulo `src/brasileirao538/elo.py` implementa `EloConfig`, `EloResult`, `EloRatings`, `expected_home_score` e `update_ratings`. Estado interno em memoria, inicializacao sob demanda e atualizacao sequencial. A pontuacao esperada nao e probabilidade 1X2. Detalhes em [elo.md](elo.md).

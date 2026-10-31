@@ -10,7 +10,7 @@ Projeto independente de previsão probabilística do Campeonato Brasileiro, insp
 - Avaliar a calibração das previsões por backtesting histórico.
 - Produzir resultados reproduzíveis, incluindo semente aleatória e versão dos dados.
 
-> Estado atual: estrutura inicial do projeto. Modelos e simulações ainda serão implementados. Nenhuma probabilidade gerada nesta etapa deve ser tratada como previsão validada.
+> Estado atual: motor Elo v1 implementado (na branch de desenvolvimento), com testes. Probabilidades 1X2 e simulações ainda não foram implementadas; os parâmetros Elo não foram calibrados com dados reais.
 
 ## Requisitos
 
@@ -48,7 +48,7 @@ python -m pytest
 ├── notebooks/                  # Exploração e experimentos
 ├── src/brasileirao538/
 │   ├── __init__.py
-│   ├── elo.py                  # Futuro rating Elo
+│   ├── elo.py                  # Rating Elo com mando de campo
 │   ├── probabilities.py        # Futuro modelo de partidas
 │   └── simulation.py           # Futuro simulador Monte Carlo
 ├── tests/
@@ -59,7 +59,7 @@ python -m pytest
 ## Roadmap
 
 1. Definir o contrato de dados de partidas e classificação, com identificadores consistentes de clubes e temporada.
-2. Implementar rating Elo com mando de campo e atualização por partida.
+2. Implementar rating Elo com mando de campo e atualização por partida. **Concluído (v1).**
 3. Definir probabilidades 1X2 por um modelo calibrável.
 4. Implementar simulação Monte Carlo com desempates oficiais por temporada.
 5. Adicionar validação temporal (sem vazamento de dados) e métricas como log loss e Brier score.
@@ -72,3 +72,16 @@ Execute `python -m pytest` para os testes, `ruff check .` para lint e `ruff form
 ## Licença
 
 Ainda não definida. Antes de distribuir ou reutilizar código externamente, escolha uma licença adequada.
+
+## Exemplo Elo v1
+
+```python
+from brasileirao538.elo import EloRatings
+
+model = EloRatings()
+print(model.expected("Flamengo", "Palmeiras"))
+match = model.record("Flamengo", "Palmeiras", 2, 1)
+print(match.home_after, match.away_after)
+```
+
+O valor retornado por `expected` é a **pontuação Elo esperada**, não a probabilidade isolada de vitória. Consulte [a documentação do Elo](docs/elo.md) para fórmulas, parâmetros, campo neutro, limitações e testes.
